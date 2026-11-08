@@ -13,17 +13,21 @@ public class Main {
         printAll(manager);
 
         System.out.println("\n=== duplicates are rejected ===");
-        System.out.println("same email:      " + manager.addContact(new PersonalContact(
-                "Ada L.", "ada@example.com", "555-9999", Contact.Relationship.WORK)));
-        System.out.println("different case:  " + manager.addContact(new PersonalContact(
-                "Ada L.", "ADA@Example.com", "555-9999", Contact.Relationship.WORK)));
-        System.out.println("blank email:     " + manager.addContact(new PersonalContact(
-                "Nobody", "   ", "555-0000", Contact.Relationship.OTHER)));
-        System.out.println("count unchanged: " + manager.getContacts().size());
+        manager.addContact(new PersonalContact(
+                "Ada L.", "ada@example.com", "555-9999", Contact.Relationship.WORK));
+        System.out.println("after same email:     " + manager.getContacts().size());
+        manager.addContact(new PersonalContact(
+                "Ada L.", "ADA@Example.com", "555-9999", Contact.Relationship.WORK));
+        System.out.println("after different case: " + manager.getContacts().size());
+        manager.addContact(new PersonalContact(
+                "Nobody", "   ", "555-0000", Contact.Relationship.OTHER));
+        System.out.println("after blank email:    " + manager.getContacts().size());
 
         System.out.println("\n=== removal ===");
-        System.out.println("GRACE@EXAMPLE.COM: " + manager.removeContact("GRACE@EXAMPLE.COM"));
-        System.out.println("again:             " + manager.removeContact("grace@example.com"));
+        manager.removeContact("GRACE@EXAMPLE.COM");
+        System.out.println("after GRACE@EXAMPLE.COM: " + manager.getContacts().size());
+        manager.removeContact("grace@example.com");
+        System.out.println("after again:             " + manager.getContacts().size());
 
         System.out.println("\n=== remaining ===");
         printAll(manager);

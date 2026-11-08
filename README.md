@@ -1,6 +1,6 @@
 # Java Contact Management
 
-A small Java exercise: a contact list built from an interface and records, where `ContactManager` keys contacts by normalized email so duplicates and blank emails are rejected.
+A small Java exercise: a contact list built from a `Contact` base class with `PersonalContact` and `WorkContact` subclasses. Each contact normalizes its email on construction (trimmed, lowercased), and `ContactManager` compares those normalized addresses so duplicate and blank emails are rejected.
 
 ### Running
 

@@ -1,11 +1,12 @@
-public record WorkContact(
-        String fullName,
-        String email,
-        String phoneNumber,
-        String company) implements Contact {
+public class WorkContact extends Contact {
+    private final String company;
 
-    @Override
-    public Relationship relationship() {
-        return Relationship.WORK;
+    public WorkContact(String fullName, String email, String phoneNumber, String company) {
+        super(fullName, email, phoneNumber, Relationship.WORK);
+        this.company = company;
+    }
+
+    public String company() {
+        return company;
     }
 }
